@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MathMatch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <style>
+/* ===== INTRO OVERLAY ===== */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.75)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ===== BOX ===== */
+#introBox {
+  background: white;
+  width: 90%;
+  max-width: 520px;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  animation: introFade 0.6s ease-out;
+}
+
+/* ===== TITLE ===== */
+#introBox h2 {
+  margin-top: 0;
+  color: #0a6f2f;
+  font-size: 26px;
+}
+
+/* ===== TEXT ===== */
+#introBox p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* ===== BUTTON ===== */
+#startBtn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #00c853, #009624);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#startBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes introFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#winner {
+  color: white;
+  font-size: 24px;
+  margin-top: 5px;
+}
+</style>
+
+
+  <!-- FENETRE D'EXPLICATION -->
+  <div id="intro">
+    <div id="introBox">
+      <h2>Bienvenue sur MathMatch !</h2>
+      <p> Deux joueurs répondent chacun leur tour.</p>
+      <p> Chaque bonne réponse fait avancer la balle vers le but adverse.</p>
+      <p> Chaque mauvaise réponse fait reculer la balle.</p>
+      <p> Le match dure 2 minutes .</p>
+      <p> chaque question dure 10 sec.</p>
+      <button id="startBtn">Commencer</button>
+    </div>
+  </div>
+
+  <div id="topbar">
+    <div id="turn">À toi de jouer : Joueur 1</div>
+    <div id="timer">Temps : 02:00</div>
+  </div>
+
+  <div id="score">
+    <div id="score1">Joueur 1 : 0</div>
+    <div id="score2">Joueur 2 : 0</div>
+  </div>
+
+  <div id="field">
+    <div id="goalLeft" class="goal"></div>
+    <div id="goalRight" class="goal"></div>
+    <div id="centerLine"></div>
+    <div id="ball"></div>
+  </div>
+
+  <div id="questions">
+    <div class="playerBox" id="box1">
+      <div id="q1"></div>
+      <div id="a1"></div>
+    </div>
+    <div class="playerBox" id="box2">
+      <div id="q2"></div>
+      <div id="a2"></div>
+    </div>
+  </div>
+
+  <div id="winner"></div>
+  <button id="restart">Recommencer</button>
+
+  <script src="game.js"></script>
+</body>
+</html>
